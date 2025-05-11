@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple CSS Website</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Internal CSS -->
+    <style>
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #333;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        a {
+            color: blue;
+            text-decoration: none;
+        }
+        a:hover {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the CSE Department</h1>
+
+    <!-- Formatted Text with inline CSS -->
+    <p style="font-size: 18px; color: green;">
+        This website demonstrates basic CSS styling using all three methods.
+    </p>
+
+    <!-- Form Section -->
+    <div>
+        <h2>Contact Us</h2>
+        <form>
+            Name: <input type="text" name="name"><br><br>
+            Email: <input type="email" name="email"><br><br>
+            Message: <br>
+            <textarea name="message" rows="4" cols="30"></textarea><br><br>
+            <input type="submit" value="Send">
+        </form>
+    </div>
+
+    <!-- Table Section -->
+    <div>
+        <h2>Course Table</h2>
+        <table>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Credits</th>
+            </tr>
+            <tr>
+                <td>CSE101</td>
+                <td>Intro to Programming</td>
+                <td>3.0</td>
+            </tr>
+            <tr>
+                <td>CSE102</td>
+                <td>Data Structures</td>
+                <td>3.0</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Link Section -->
+    <p>
+        Visit our <a href="https://www.example.com" target="_blank">official site</a> for more info.
+    </p>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>JavaScript Event Handling</title>
+ <style>
+ .container {
+ margin: 20px;
+ }
+ .button {
+ margin: 10px;
+ padding: 10px;
+ cursor: pointer;
+ background-color: lightblue;
+ }
+ .color-box {
+ width: 100px;
+ height: 100px;
+ background-color: lightgreen;
+ margin-top: 10px;
+ }
+ .new-tag {
+ color: red;
+ }
+ </style>
+ <script>
+ // Function to change text content
+ function changeText() {
+ document.getElementById("text-element").innerText = "Text Changed!";
+ }
+ // Function to change the background color of a div
+ function changeColor() {
+ document.getElementById("color-box").style.backgroundColor = "lightcoral";
+ }
+ // Function to remove the last inserted element
+ function removeElement() {
+ // Select the last inserted element with the class 'new-tag'
+ var lastInsertedTag = document.querySelector(".new-tag:last-of-type");
+ if (lastInsertedTag) { // Check if the element exists before removing it
+ lastInsertedTag.remove();
+ } else {
+ alert("No tag to remove!");
+ }
+ }
+ // Function to insert a new tag into the document
+ function insertNewTag() {
+ var newTag = document.createElement("p");
+ newTag.classList.add("new-tag");
+ newTag.innerText = "This is a newly inserted tag!";
+ document.body.appendChild(newTag);
+ }
+ // Function to change color on mouse over
+ function mouseOverChangeColor() {
+ document.getElementById("mouseover-box").style.backgroundColor = 
+"lightblue";
+ }
+ // Function to reset color on mouse out
+ function mouseOutResetColor() {
+ document.getElementById("mouseover-box").style.backgroundColor = 
+"lightgreen";
+ }
+ </script>
+</head>
+<body>
+ <div class="container">
+ <h2>JavaScript Event Handling</h2>
+ <!-- Button to change text -->
+ <button class="button" onclick="changeText()">Change Text</button>
+ <p id="text-element">This is a sample text.</p>
+ <!-- Button to change background color -->
+ <button class="button" onclick="changeColor()">Change Color</button>
+ <div id="color-box" class="color-box"></div>
+ <!-- Button to remove the last inserted tag -->
+ <button class="button" onclick="removeElement()">Remove Last Tag</button>
+ <!-- Button to insert a new tag -->
+ <button class="button" onclick="insertNewTag()">Insert New Tag</button>
+ <!-- Div with mouseover and mouseout events -->
+ <div 
+ id="mouseover-box" 
+ class="color-box" 
+ onmouseover="mouseOverChangeColor()" 
+ onmouseout="mouseOutResetColor()">
+ Hover over me!
+ </div>
+ </div>
+</body>
+</html>

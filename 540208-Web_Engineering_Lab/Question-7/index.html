@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Personal Info Form</title>
+  <script>
+    function validateForm() {
+      let name = document.forms["infoForm"]["name"].value.trim();
+      let address = document.forms["infoForm"]["address"].value.trim();
+      let email = document.forms["infoForm"]["email"].value.trim();
+      let gender = document.forms["infoForm"]["gender"].value;
+      let mobile = document.forms["infoForm"]["mobile"].value.trim();
+
+      if (name === "" || address === "" || email === "" || gender === "" || mobile === "") {
+        alert("All fields are mandatory.");
+        return false;
+      }
+
+      let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!emailPattern.test(email)) {
+        alert("Invalid email address.");
+        return false;
+      }
+
+      let mobilePattern = /^\d{11}$/;
+      if (!mobilePattern.test(mobile)) {
+        alert("Mobile number must be exactly 11 digits.");
+        return false;
+      }
+
+      alert("Form submitted successfully!");
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <h2>Personal Information Form</h2>
+  <form name="infoForm" onsubmit="return validateForm();">
+    Name: <input type="text" name="name"><br><br>
+    Address: <input type="text" name="address"><br><br>
+    Email: <input type="text" name="email"><br><br>
+    Gender: 
+    <select name="gender">
+      <option value="">--Select--</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select><br><br>
+    Mobile Number: <input type="text" name="mobile"><br><br>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>

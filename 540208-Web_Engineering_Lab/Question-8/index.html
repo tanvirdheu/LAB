@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Event Handling</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin: 20px;
+        }
+
+        .button {
+            margin: 10px;
+            padding: 10px;
+            cursor: pointer;
+            background-color: lightblue;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: deepskyblue;
+        }
+
+        .color-box {
+            width: 100px;
+            height: 100px;
+            background-color: lightgreen;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .new-tag {
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .tag-container {
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        // Change Text content
+        function changeText() {
+            document.getElementById("text-element").innerText = "Text Changed Successfully!";
+        }
+
+        // Change Color of Color Box
+        function changeColor() {
+            document.getElementById("color-box").style.backgroundColor = "lightcoral";
+        }
+
+        // Reset Color of Color Box
+        function resetColor() {
+            document.getElementById("color-box").style.backgroundColor = "lightgreen";
+        }
+
+        // Remove the last inserted tag
+        function removeElement() {
+            const lastInsertedTag = document.querySelector(".new-tag:last-of-type");
+            if (lastInsertedTag) {
+                lastInsertedTag.remove();
+            } else {
+                alert("No tag to remove!");
+            }
+        }
+
+        // Insert a new tag
+        function insertNewTag() {
+            const newTag = document.createElement("p");
+            newTag.classList.add("new-tag");
+            newTag.innerText = "This is a newly inserted tag!";
+            document.querySelector(".tag-container").appendChild(newTag);
+        }
+
+        // Change Color on Mouse Over
+        function mouseOverChangeColor() {
+            document.getElementById("mouseover-box").style.backgroundColor = "lightblue";
+        }
+
+        // Reset Color on Mouse Out
+        function mouseOutResetColor() {
+            document.getElementById("mouseover-box").style.backgroundColor = "lightgreen";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>JavaScript Event Handling</h2>
+
+        <!-- Change Text -->
+        <button class="button" onclick="changeText()">Change Text</button>
+        <p id="text-element">This is a sample text.</p>
+
+        <!-- Change Background Color -->
+        <button class="button" onclick="changeColor()">Change Color</button>
+        <div id="color-box" class="color-box" onmouseover="changeColor()" onmouseout="resetColor()"></div>
+
+        <!-- Remove Last Inserted Tag -->
+        <button class="button" onclick="removeElement()">Remove Last Tag</button>
+
+        <!-- Insert New Tag -->
+        <button class="button" onclick="insertNewTag()">Insert New Tag</button>
+
+        <!-- Container for dynamically inserted tags -->
+        <div class="tag-container">
+            <!-- New tags will be inserted here -->
+        </div>
+
+        <!-- Mouseover Event on Box -->
+        <div id="mouseover-box" class="color-box" onmouseover="mouseOverChangeColor()" onmouseout="mouseOutResetColor()">
+            Hover over me!
+        </div>
+    </div>
+</body>
+
+</html>
